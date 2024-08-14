@@ -4,11 +4,15 @@ const app = express();
 require("dotenv").config();
 require("../Config/Connect");
 const cors = require("cors");
-
+const mongo = require("mongoose");
 // Cors Origin Access
 app.use(
   cors({
-    origin: "*", // Change It Later
+    origin: [
+      "https://smart-menu-client.onrender.com",
+      "http://localhost:5173",
+      "http://localhost:5174"
+    ], // Change It Later
     methods: "*", // Change It Later
   })
 );
@@ -25,6 +29,13 @@ app.use("/categories", CategoriesRoute);
 app.use("*", (req, res) => {
   res.json({ msg: "No Route Found" });
 });
-// Server
+// Server & Database
 const PORT = process.env.SERVER_PORT;
-app.listen(PORT, () => console.log(`Server Running On PORT ${PORT}`));
+mongo
+  .connect(process.env.DB_MONGO_URI)
+  .then(() => {
+    console.log("Connected To DB");
+    // Server
+    app.listen(PORT, () => console.log(`Server Running On PORT ${PORT}`));
+  })
+  .catch(() => console.log("Something Went Wrong"));

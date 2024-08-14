@@ -10,11 +10,11 @@ const CategoriesController = {
   // Create New Category
   createNewCategory: async (req, res) => {
     const { name_en, name_ar, image, active } = req.body;
-    // const category = await CategoryModel.find({ name_en: name_en });
-    // console.log("Category Found ? ", category);
-    // if (category.length != 0) {
-    //   return res.status(400).json({ msg: "Category Already Exsit" });
-    // }
+    const category = await CategoryModel.find({ name_en: name_en });
+    console.log("Category Found ? ", category);
+    if (category.length != 0) {
+      return res.status(400).json({ msg: "Category Already Exsit" });
+    }
     const newCategory = new CategoryModel({ name_en, name_ar, image, active });
     console.log("New Category: ", newCategory);
     newCategory
