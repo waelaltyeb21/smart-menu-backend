@@ -10,6 +10,7 @@ app.use(
   cors({
     origin: [
       "https://smart-menu-admin-dashboard.onrender.com",
+      "https://smart-menu-admin-dashboard.onrender.com/",
       "https://smart-menu-client.onrender.com",
       "http://localhost:5173",
       "http://localhost:5174"
