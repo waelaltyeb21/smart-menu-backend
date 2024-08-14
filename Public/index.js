@@ -8,14 +8,7 @@ const mongo = require("mongoose");
 // Cors Origin Access
 app.use(
   cors({
-    origin: [
-      "https://smart-menu-admin-dashboard.onrender.com",
-      "https://smart-menu-admin-dashboard.onrender.com/",
-      "https://smart-menu-admin-dashboard.onrender.com/*",
-      "https://smart-menu-client.onrender.com",
-      "http://localhost:5173",
-      "http://localhost:5174"
-    ], // Change It Later
+    origin: "*", // Change It Later
     methods: "*", // Change It Later
   })
 );
