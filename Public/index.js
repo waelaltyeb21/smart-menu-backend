@@ -11,6 +11,7 @@ app.use(
     origin: [
       "https://smart-menu-admin-dashboard.onrender.com",
       "https://smart-menu-client.onrender.com",
+      "https://smart-menu-dashboard-21.web.app",
       "http://localhost:5173",
       "http://localhost:5174"
     ], // Change It Later
